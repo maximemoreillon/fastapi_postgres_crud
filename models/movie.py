@@ -1,11 +1,14 @@
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 
-from ..psql import Base
+from ..database import Base
 
 class Movie(Base):
     
-    __tablename__ = "items"
+    __tablename__ = "movies"
+
+    id = Column(Integer, primary_key=True, index=True)
+
 
     title = Column(String, index=True)
     summary = Column(String, index=True)

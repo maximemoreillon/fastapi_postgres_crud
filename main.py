@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-from psql import SessionLocal, engine
-from routers import directors, movies
+from .routers import directors, movies
 
 
 # from . import crud, models, schemas
@@ -8,14 +7,6 @@ from routers import directors, movies
 
 app = FastAPI()
 
-
-# Dependency
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 app.include_router(directors.router)
 app.include_router(movies.router)
