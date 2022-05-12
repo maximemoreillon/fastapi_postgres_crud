@@ -9,7 +9,6 @@ class DirectorBase(BaseModel):
 
 
 class DirectorCreate(DirectorBase):
-    # Nothing additional for director creation
     pass
 
 
