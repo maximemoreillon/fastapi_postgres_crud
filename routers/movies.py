@@ -19,4 +19,4 @@ def read_movies(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
 @router.get("/{movie_id}", response_model=Movie)
 def read_movies(id: int, db: Session = Depends(get_db)):
     movie = get_movie(db, id=id)
-    return items
+    return movie
