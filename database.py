@@ -16,7 +16,7 @@ connection_string = f'postgresql+psycopg2://{POSTGRES_USERNAME}:{POSTGRES_PASSWO
 
 engine = create_engine(
     connection_string, 
-    connect_args={"check_same_thread": False}
+    #connect_args={"check_same_thread": False}
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

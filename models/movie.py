@@ -1,7 +1,7 @@
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 
-from ..database import Base
+from ..database import Base, engine
 
 class Movie(Base):
     
@@ -16,3 +16,6 @@ class Movie(Base):
     director_id = Column(Integer, ForeignKey("directors.id"))
 
     director = relationship("Director", back_populates="movies")
+
+# Here?
+Base.metadata.create_all(bind=engine)
