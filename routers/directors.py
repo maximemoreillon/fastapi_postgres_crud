@@ -1,6 +1,6 @@
+from typing import List # Needed for python < 3.9
 from fastapi import APIRouter,Depends, HTTPException
 from sqlalchemy.orm import Session
-from typing import List
 
 from ..database import get_db
 from ..controllers.director import create_director, get_director, get_directors 

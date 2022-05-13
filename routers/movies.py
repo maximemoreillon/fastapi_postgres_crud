@@ -1,3 +1,5 @@
+from typing import List # Needed for python < 3.9
+
 from fastapi import APIRouter,Depends, HTTPException
 from sqlalchemy.orm import Session
 
@@ -11,7 +13,8 @@ router = APIRouter(
 )
 
 
-@router.get("/", response_model=list[Movie])
+#@router.get("/", response_model=ist[Movie]) # > Python 3.9
+@router.get("/", response_model=List[Movie])
 def read_movies(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     movies = get_movies(db, skip=skip, limit=limit)
     return movies
